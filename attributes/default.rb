@@ -3,8 +3,7 @@
 #
 # just assume user already exists as part of basic OS install
 #
-default['devbox']['user']         = 'cdeutsch'
-default['devbox']['ruby_version'] = '2.1.3'
+default['devbox']['user'] = 'cdeutsch'
 
 #
 # some extra packages to install
@@ -23,8 +22,4 @@ default['devbox']['src_dir']     = "#{node['devbox']['homedir']}/src"
 #
 # ruby
 #
-# default['rbenv']['root_path'] = '/usr/bin/rbenv'
-default['rbenv']['user_installs'] = [{ 
-  'user' => node['devbox']['user'],
-  'rubies' => node['devbox']['ruby_version']
-}]
+default['rbenv']['rubies'] = ['2.2.0']

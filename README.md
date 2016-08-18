@@ -32,8 +32,11 @@ You can also run rake steps individually. See `rake -T` for a complete list.
 
 A lot of the examples out on the 'net for setting up a workstation
 using chef are old, and rely on using `chef-solo` instead of `chef-zero`.
-Some others are unnecessarily complex. I wanted to create something I
-could just check out from github and run with a single command. 
+Some others are unnecessarily complex. Others require adding your workstation
+as an actual chef node, which is kind of overkill for some situations.
+
+I wanted to create something I could just check out from github and run 
+with a single command. 
 
 This isn't a common or even a recommended use case for chef.
 
@@ -45,7 +48,8 @@ Here's how it works:
 
 The `zero.rb` file doesn't look like a regular `knife.rb` file because
 we're not running chef the way you normally would. Instead, it stubs
-out just enough of a chef environment to let chef run.
+out just enough of a chef environment to let chef run. We rely on
+Berkshelf to provide access to cookbooks.
 
 ## License and Authors
 

@@ -1,14 +1,20 @@
-require 'rspec/core/rake_task'
-
 desc "boostrap everything"
 task :bootstrap => [:chefdk, :install]
 
 desc "run devbox chef recipes"
 task :install do
   $PATH = "/opt/chefdk/bin:#{$PATH}"
-  sh "sudo rm -f cookbooks || true"
+  
+  #
+  # FIXME: the chef run messes up file ownership, so just rechown here
+  #
+  chown_user = `grep 'user.* =' attributes/default.rb | cut -d'=' -f2`.chomp
+  sh "sudo chown -R #{chown_user} berks-cookbooks cookbooks"
+
   sh "berks vendor"
   sh "sudo chef-client -z -j zero.json -c zero.rb"
+  
+  puts "Now you probablly need to logout and re-login to get rbenv up and running"
 end
 
 desc "(re)install chefdk"

@@ -3,7 +3,14 @@
 #
 # just assume user already exists as part of basic OS install
 #
-default['devbox']['user'] = 'cdeutsch'
+default['devbox']['user']  = 'cdeutsch'
+default['devbox']['email'] = 'chef@ispeakdeutsch.com'
+default['devbox']['name']  = 'Chris Deutsch'
+
+#
+# chefdk
+#
+default['devbox']['chefdk_url'] = 'https://packages.chef.io/stable/debian/8/chefdk_0.17.17-1_amd64.deb'
 
 #
 # some extra packages to install

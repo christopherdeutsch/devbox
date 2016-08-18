@@ -14,29 +14,23 @@ And do something weird :)
 ## Instructions
 
 1. Download via `git clone https://github.com/christopherdeutsch/devbox.git`
-2. Edit any defaults you like in `attributes/default.rb` (meh)
-3. Run `rake bookstrap`
+2. Edit any defaults you like in `zero.json` or `attributes/default.rb`
+3. Run `rake bootstrap`
 
 You can also run rake steps individually. See `rake -T` for a complete list.
 
-* `rake chefdk` to install ChefDK
-* `rake install` to run chef on the local host
-* `rake packages` to install any packages needed for chefdk/chef
-
-## Attributes
-
-* `devbox.user` - username
-* `devbox.packages.editor` - editor to install
-
-## What's interesting here?
+## Why?
 
 A lot of the examples out on the 'net for setting up a workstation
 using chef are old, and rely on using `chef-solo` instead of `chef-zero`.
-Some others are unnecessarily complex. Others require adding your workstation
-as an actual chef node, which is kind of overkill for some situations.
+
+Others are unnecessarily complex; for example, they require adding a workstation
+as an actual chef node, which is overkill if the node isn't actually going
+to be managed.
 
 I wanted to create something I could just check out from github and run 
-with a single command. 
+with a single command, which would install some stuff I needed in
+a repeatable and testable manner.
 
 This isn't a common or even a recommended use case for chef.
 

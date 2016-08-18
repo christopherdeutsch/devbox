@@ -2,19 +2,25 @@
 
 This cookbook is designed to set up a development workstation or virtual machine
 in one step, using chef-zero. This isn't necessarily something you would use 
-on a day-to-day basis (see: test kitchen, chef server, etc. etc.). 
-
-It's also an exercise to get me back into chef after a long break. 
-And do something weird :)
+on a day-to-day basis (see: test kitchen, chef server, etc.). 
 
 ## Supported Platforms
 
 * Debian 8.5
 
+## Prerequisites
+
+The following packages are required to bootstrap:
+
+* ruby
+* rake
+* git
+* sudo
+
 ## Instructions
 
 1. Download via `git clone https://github.com/christopherdeutsch/devbox.git`
-2. Edit any defaults you like in `zero.json` or `attributes/default.rb`
+2. Edit the defaults in `zero.json` if you like JSON, or `attributes/default.rb` if you are lazy like me
 3. Run `rake bootstrap`
 
 You can also run rake steps individually. See `rake -T` for a complete list.

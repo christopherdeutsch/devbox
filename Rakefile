@@ -25,7 +25,7 @@ task :fix_perms do
   # FIXME: the chef run messes up file ownership, so just rechown here
   #
   chown_user = `grep 'user.* =' attributes/default.rb | cut -d'=' -f2`.chomp
-  sh "sudo chown -R #{chown_user} berks-cookbooks cookbooks"
+  sh "sudo chown -R #{chown_user} berks-cookbooks cookbooks || true"
 end
 
 desc "run some tests"

@@ -1,0 +1,2 @@
+.kitchen
+chef-client-running.pid

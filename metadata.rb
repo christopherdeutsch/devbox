@@ -8,3 +8,4 @@ version          '0.1.0'
 
 depends 'ruby_rbenv'
 depends 'ruby_build'
+depends 'apt'

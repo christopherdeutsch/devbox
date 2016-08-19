@@ -38,18 +38,17 @@ I wanted to create something I could just check out from github and run
 with a single command, which would install some stuff I needed in
 a repeatable and testable manner.
 
-This isn't a common or even a recommended use case for chef.
+It also allows me to maintain this as a real cookbook with no special
+magic that would prevent regular chef runs, or tools, from working.
 
-Here's how it works:
+## How it works
 
-1. Run `chef-client` with the `-z` flag so we use `chef-zero`. 
-2. Instruct chef to use the file `zero.json` for attributes
-3. Use `zero.rb` as the `knife.rb` configuration file
+Quick rundown:
 
-The `zero.rb` file doesn't look like a regular `knife.rb` file because
-we're not running chef the way you normally would. Instead, it stubs
-out just enough of a chef environment to let chef run. We rely on
-Berkshelf to provide access to cookbooks.
+1. Uses the [chefzero_simple](https://github.com/christopherdeutsch/chefzero_simple) gem 
+to enable running chef-zero locally with minimal hassle 
+
+2. Provides a `zero.json` file with the devbox cookbook runlist
 
 ## License and Authors
 

@@ -1,13 +1,13 @@
+require 'chefzero_simple/rake/task'
+
+# $PATH = "/opt/chefdk/bin:#{$PATH}"
+
 desc "boostrap everything"
 task :bootstrap => [:chefdk, :install]
 
 desc "run devbox chef recipes"
 task :install => [:fix_perms] do
-  $PATH = "/opt/chefdk/bin:#{$PATH}"
-
-  sh "berks vendor"
-  sh "sudo chef-client -z -j zero.json -c zero.rb"
-  
+  Rake::Task[:local_chefzero].invoke
   puts "Now you probablly need to logout and re-login to get rbenv up and running"
 end
 

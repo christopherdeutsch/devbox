@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/christopherdeutsch/chefzero_simple.git
-  revision: 4ddd0d4082c0e3c04052a4e49e88a59d6dcdf58e
+  revision: 2e6d615bfbdc778e7475f5c9e206375e6af5b61b
   specs:
     chefzero_simple (0.2.0)
 

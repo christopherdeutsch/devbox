@@ -13,6 +13,8 @@ pkg/
 Gemfile.lock
 Berksfile.lock
 
+.ruby-version
+
 # Bundler
 bin/*
 .bundle/*

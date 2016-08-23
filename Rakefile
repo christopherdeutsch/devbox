@@ -1,13 +1,11 @@
 require 'chefzero_simple/rake/task'
 
-# $PATH = "/opt/chefdk/bin:#{$PATH}"
-
 desc "boostrap everything"
 task :bootstrap => [:chefdk, :install]
 
 desc "run devbox chef recipes"
-task :install => [:fix_perms] do
-  Rake::Task[:local_chefzero].invoke
+task :install do
+  Rake::Task[:chefzero_simple].invoke
   puts "Now you probablly need to logout and re-login to get rbenv up and running"
 end
 
@@ -20,15 +18,7 @@ task :chefdk do
   end
 end
 
-task :fix_perms do  
-  #
-  # FIXME: the chef run messes up file ownership, so just rechown here
-  #
-  chown_user = `grep 'user.* =' attributes/default.rb | cut -d'=' -f2`.chomp
-  sh "sudo chown -R #{chown_user} berks-cookbooks cookbooks || true"
-end
-
 desc "run some tests"
-task :test => [:fix_perms] do
+task :test do
   sh "chef exec rspec"
 end

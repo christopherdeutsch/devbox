@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 #
 # bootstrap devbox
 # debian specific
 #
 CHEFDK_PKG="chefdk_0.17.17-1_amd64.deb"
-CHEFDK_URL="https://packages.chef.io/stable/debian/8/$CHEFDK"
+CHEFDK_URL="https://packages.chef.io/stable/debian/8/$CHEFDK_PKG"
 
 if [ $UID != "0" ]; then
   echo "Please run as root"

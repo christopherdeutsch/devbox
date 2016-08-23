@@ -8,22 +8,11 @@ on a day-to-day basis (see: test kitchen, chef server, etc.).
 
 * Debian 8.5
 
-## Prerequisites
-
-The following packages are required to bootstrap:
-
-* ruby
-* rake
-* git
-* sudo
-
 ## Instructions
 
-1. Download via `git clone https://github.com/christopherdeutsch/devbox.git`
-2. Edit the defaults in `zero.json` if you like JSON, or `attributes/default.rb` if you are lazy like me
-3. Run `rake bootstrap`
-
-You can also run rake steps individually. See `rake -T` for a complete list.
+```
+wget https://raw.githubusercontent.com/christopherdeutsch/devbox/master/bootstrap.sh && chmod +x bootstrap.sh && su root -c ./bootstrap.sh
+```
 
 ## Why?
 

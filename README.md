@@ -36,8 +36,8 @@ Quick rundown:
 
 1. Uses the [chefzero_simple](https://github.com/christopherdeutsch/chefzero_simple) gem 
 to enable running chef-zero locally with minimal hassle 
-
-2. Provides a `zero.json` file with the devbox cookbook runlist
+2. Provides a `bootstrap.sh` shell script to download/install/run everything
+3. Provides a `zero.json` file with the devbox cookbook runlist
 
 ## License and Authors
 

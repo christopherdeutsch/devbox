@@ -1,6 +1,12 @@
 #
 # make some directories
 #
-directory node['devbox']['homedir']
-directory node['devbox']['package_dir']
-directory node['devbox']['src_dir']
+homedir = case node['platform']
+  when 'mac_os_x'
+    "/Users/#{node['devbox']['user']}"
+  else
+    "/home/#{node['devbox']['user']}"
+end
+
+directory "#{homedir}/packages"
+directory "#{homedir}/src"

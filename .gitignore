@@ -25,3 +25,6 @@ bin/*
 local-mode-cache  
 berks-cookbooks
 chef-client-running.pid
+
+nodes/
+vendor/

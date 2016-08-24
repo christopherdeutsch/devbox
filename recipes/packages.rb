@@ -1,10 +1,8 @@
 #
 # install some packages
 #
-package_groups = %w(editor build)
-
-package_groups.each do |package_group|
-  node['devbox']['packages'][package_group].each do |p|
+%w(editor build misc).each do |package_group|
+  node['devbox']['packages'][node['platform']][package_group].each do |p|
     package p
   end
 end

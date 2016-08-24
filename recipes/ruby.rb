@@ -1,7 +1,11 @@
 #
-# Use the rbenv cookbook to set up ruby 
+# Use the rbenv cookbook to set up ruby, if possible
 #
-include_recipe 'ruby_build::default'
-include_recipe 'ruby_rbenv::system'
-
-rbenv_global node['rbenv']['rubies'].first
+case node['platform']
+  when 'mac_os_x'
+    package 'ruby-build'
+    package 'rbenv'
+  else
+    include_recipe 'ruby_build::default'
+    include_recipe 'ruby_rbenv::system'
+end

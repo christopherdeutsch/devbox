@@ -16,7 +16,7 @@ case node['platform']
     end
 
     execute 'apt-get update'
-    package node['devbox']['packages']['mac_os_x']['docker']
+    package node['devbox']['packages']['debian']['docker']
 
   #
   # MacOS X

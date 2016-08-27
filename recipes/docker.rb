@@ -16,17 +16,20 @@ case node['platform']
     end
 
     execute 'apt-get update'
-    package node['devbox']['packages']['debian']['docker']
+
+    node['devbox']['packages']['debian']['docker'].each do |pkg|
+      package pkg
+    end
 
   #
   # MacOS X
   #
   when 'mac_os_x'
-    dmg_package 'Docker' do
+    remote_file 'docker.pkg' do
       source node['devbox']['packages']['mac_os_x']['docker']
-      action :install
     end
 
-  else
-    raise "unsupported platform"
+    execute 'install docker' do
+      command "installer -pkg docker.pkg -target /"
+    end
 end
